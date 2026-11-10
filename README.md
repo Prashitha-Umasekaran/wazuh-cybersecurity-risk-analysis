@@ -1,95 +1,104 @@
 # Cybersecurity Risk Analysis Using Wazuh, Kali Linux & Power BI
 
-## Project Overview
+A practical cybersecurity monitoring case study showing how security events from a simulated SOC environment can be reviewed and communicated through a business-risk lens.
 
-This project demonstrates a hands-on cybersecurity monitoring and risk analysis exercise using Wazuh, Kali Linux, and Power BI.
+> **Project evidence:** This repository preserves screenshots from the original hands-on implementation. The original virtual machines and raw Wazuh alert exports are no longer available, so this is an evidence-led project case study—not a currently running lab or a fully reproducible deployment.
 
-The objective was to monitor security events generated in a simulated environment, examine suspicious activities, identify potential threats, and translate technical security information into business-oriented risk insights.
+## At a glance
 
-Rather than focusing only on technical alerts, the project explored how security monitoring information can support risk identification, prioritisation, and decision-making.
-
-## Objectives
-
-- Understand security event monitoring using Wazuh.
-- Generate and observe security-related activities using Kali Linux.
-- Examine authentication events and system activity.
-- Identify suspicious patterns and potential security risks.
-- Present security information through Power BI dashboards.
-- Communicate technical findings in a business-friendly manner.
-
-## Tools and Technologies
-
-| Tool | Purpose |
+| Area | Details |
 |---|---|
-| Wazuh | Security monitoring and event analysis |
-| Kali Linux | Simulated security testing and event generation |
-| Power BI | Security data visualisation and risk reporting |
-| MITRE ATT&CK | Understanding threat techniques and detection context |
+| Project type | Hands-on cybersecurity monitoring and risk analysis |
+| Monitoring platform | Wazuh |
+| Test environment | Kali Linux |
+| Visualisation | Microsoft Power BI |
+| Threat context | MITRE ATT&CK-related detections visible in Wazuh |
+| Main focus | Event review, potential risk interpretation, and stakeholder communication |
 
-## Project Activities
+## Project objective
 
-1. Configured a simulated security monitoring environment.
-2. Connected a Kali Linux agent to Wazuh.
-3. Generated and monitored security-related activities.
-4. Examined authentication events, system activity, and port-related alerts.
-5. Reviewed security detections and associated MITRE ATT&CK techniques.
-6. Used security information to develop risk-focused visualisations in Power BI.
+The objective was to monitor security-related activity in a simulated environment, review selected alerts, identify patterns that may require investigation, and present security information in a form that is easier for non-technical stakeholders to understand.
 
-## Key Areas Examined
+The work connected technical monitoring with business questions: What happened? Why might it matter? Which activity may need further review? What management action could reduce exposure?
+
+## Tools and technologies
+
+| Tool | Role in the project |
+|---|---|
+| Wazuh | Security event monitoring and alert review |
+| Kali Linux | Testing environment used to generate security-related activity |
+| Power BI | Visual presentation of security monitoring information |
+| MITRE ATT&CK | Context for interpreting selected detection techniques |
+
+## Work performed
+
+1. Set up a simulated security monitoring environment using Wazuh and Kali Linux.
+2. Connected a Kali Linux agent to the Wazuh environment and reviewed its status.
+3. Generated and observed security-related activity in the lab.
+4. Examined authentication, privileged-user, system, and port-status events.
+5. Reviewed selected detections with MITRE ATT&CK context.
+6. Presented security information in a Power BI dashboard.
+7. Interpreted the observations in terms of potential organisational risk and possible management actions.
+
+## Selected observations visible in the archived screenshots
+
+The original screenshots show the following values in their respective Wazuh views:
+
+- **415 hits** in the Wazuh Discover view for the displayed time range.
+- **61 events** in the Security Events dashboard view.
+- **13 authentication successes** and **6 authentication failures** in the displayed security-event summary.
+
+These are values from different interface views and/or visual summaries. They should not be added together or treated as one reconciled event total. The archived screenshots do not provide the underlying raw event export needed to independently recalculate them.
+
+The Power BI screenshot also shows a dashboard built from a small displayed sample. It should be treated as a historical visualisation, not as a verified complete export of all 61 Wazuh events.
+
+## Security areas reviewed
 
 - Authentication successes and failures
-- Password-guessing activity
-- Privileged user and sudo activity
+- Password-guessing-related detections
+- Privileged-user and sudo activity
 - Port-status changes
 - System and security event patterns
-- Alert severity and distribution
+- Alert severity and agent-based distribution
 
-## Business and Risk Analysis Perspective
+## Business and risk interpretation
 
-The project explored how technical security events can be translated into useful information for decision-makers.
+| Observation | Potential significance | Example follow-up |
+|---|---|---|
+| Repeated authentication failures | Possible password guessing or unauthorised access attempts | Review source, account, frequency, and authentication controls |
+| Password-guessing-related detection | Potential account compromise risk | Review password policy, MFA coverage, and account protection |
+| Privileged-user activity | Elevated access may increase incident impact | Validate whether the activity was authorised and review least privilege |
+| Port-status change | May reflect an expected change or require investigation | Confirm the change against approved system and network activity |
+| Recurring alerts | Could indicate persistent exposure or noisy detections | Group related alerts and prioritise investigation |
 
-Key areas of focus included:
+These are risk interpretations and suggested review actions, not confirmation that a breach occurred.
 
-- Identifying recurring security events.
-- Understanding the significance of high-severity alerts.
-- Prioritising potential risks.
-- Improving visibility into security activity.
-- Supporting risk-based decision-making through dashboards.
+## Project documentation
 
-## Project Evidence
+- [Screenshot evidence](documentation/project-evidence.md)
+- [Project methodology](documentation/methodology.md)
+- [Findings and risk insights](documentation/findings-and-risk-insights.md)
+- [Screenshots folder](screenshots/)
 
-The `screenshots/` folder contains 11 screenshots from the original practical project, documenting the Wazuh environment, Kali Linux agent, security events, detections, and Power BI dashboard.
+## Skills demonstrated
 
-## Scope and Limitations
+- Security event monitoring and review
+- Authentication and privileged-activity analysis
+- Basic threat-detection interpretation
+- MITRE ATT&CK awareness
+- Risk identification and prioritisation
+- Power BI dashboard communication
+- Translating technical observations into business language
 
-This repository documents the original project using the screenshots currently available.
+## Scope, evidence and limitations
 
-The original virtual machines and raw Wazuh alert exports are not currently available. Therefore, the screenshots are retained as historical project evidence. Any future reconstructed datasets or dashboard elements will be clearly identified as reconstructed or illustrative rather than original system exports.
-
-## Skills Demonstrated
-
-- Cybersecurity monitoring
-- Security event analysis
-- Threat identification
-- Basic MITRE ATT&CK interpretation
-- Risk assessment and prioritisation
-- Power BI visualisation
-- Business-oriented cybersecurity reporting
+- The screenshots are historical evidence from the original practical project.
+- The original VM files and raw Wazuh alert exports are currently unavailable.
+- The archived screenshots do not establish that the lab is still operational.
+- The displayed counts belong to their respective screenshots and have not been reconciled against raw data.
+- No reconstructed or illustrative data should be mistaken for original Wazuh exports.
+- This repository documents the work and available evidence; it does not claim a production SOC deployment or a confirmed real-world security incident.
 
 ---
 
-**Project Focus:** Connecting cybersecurity monitoring with business risk analysis and decision support.
-
-
-## Project Documentation
-
-Explore the supporting project materials:
-
-- [Original Project Screenshots](screenshots/)
-- [Screenshot Evidence](documentation/project-evidence.md)
-- [Project Methodology](documentation/methodology.md)
-- [Findings and Risk Insights](documentation/findings-and-risk-insights.md)
-
-## Project Status
-
-The repository documents the original practical implementation using available historical screenshots and supporting explanations. The original virtual machines and raw alert exports are currently unavailable.
+**Project focus:** Connecting cybersecurity monitoring with business risk analysis and decision support.
