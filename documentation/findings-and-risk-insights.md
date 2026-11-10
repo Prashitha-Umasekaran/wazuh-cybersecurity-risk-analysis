@@ -1,59 +1,71 @@
 # Findings and Risk Insights
 
-## 1. Authentication Activity
+This document interprets the security activity visible in the archived Wazuh screenshots. It distinguishes observed interface information from potential risk implications.
 
-The Wazuh environment displayed authentication successes and failures.
+## 1. Authentication activity
 
-**Risk relevance:** Repeated authentication failures may indicate password-guessing attempts or unauthorised access attempts. Successful authentication should also be reviewed when it occurs in unusual circumstances.
+The archived Security Events view displays **13 authentication successes** and **6 authentication failures** for the period shown in that screenshot.
 
-**Business implication:** Unauthorised account access can expose confidential information and disrupt business operations.
+**Risk relevance:** Repeated authentication failures may indicate password-guessing attempts or other unsuccessful access attempts. Successful authentication is not inherently suspicious; it should be reviewed in context, especially if the account, source, time, or behaviour is unusual.
 
-## 2. Password-Guessing Detection
+**Business implication:** Account compromise can expose confidential information and disrupt business operations.
 
-Password-guessing-related detections were observed in the security monitoring environment.
+**Suggested review:** Correlate failures by account and source, check whether the activity is expected, and review password and multi-factor authentication controls.
 
-**Risk relevance:** These detections can indicate attempts to gain access through repeated password combinations.
+## 2. Password-guessing-related detection
 
-**Business implication:** Weak passwords and inadequate access controls can increase the likelihood of account compromise.
+A password-guessing-related detection is visible among the Wazuh/MITRE ATT&CK-related evidence.
 
-## 3. Privileged User Activity
+**Risk relevance:** This type of detection may indicate repeated attempts to discover valid credentials.
+
+**Business implication:** Weak credentials or insufficient account protections can increase the likelihood of unauthorised access.
+
+**Suggested review:** Validate the alert details, affected account, source, frequency, and whether any subsequent successful login is related.
+
+## 3. Privileged-user activity
 
 Sudo and authentication-related events were examined.
 
-**Risk relevance:** Privileged activities require monitoring because administrator-level access can affect critical systems and configurations.
+**Risk relevance:** Privileged activity deserves attention because administrator-level access can change configurations, access sensitive information, or affect critical services.
 
-**Business implication:** Poor privileged-access management may increase the impact of security incidents.
+**Business implication:** Inadequate privileged-access management may increase the impact of an incident.
 
-## 4. Port-Status Changes
+**Suggested review:** Confirm that the activity was authorised, review the account's need for elevated privileges, and retain appropriate audit logs.
 
-A port-status change alert was observed from the Kali Linux agent.
+## 4. Port-status changes
 
-**Risk relevance:** Unexpected changes in network port status may require investigation to determine whether they are authorised.
+A port-status change alert from the Kali Linux agent is visible in the archived evidence.
 
-**Business implication:** Unmonitored network changes may create additional exposure or service disruption.
+**Risk relevance:** A port-status change may be expected during testing or maintenance, but an unexpected change may require investigation.
 
-## 5. Security Event Visibility
+**Business implication:** Unreviewed network changes can affect service availability or create unintended exposure.
 
-Wazuh provided visibility into security events, agent activity, and selected threat detections.
+**Suggested review:** Compare the event with approved testing or change activity and validate the affected host and service.
 
-**Risk relevance:** Centralised monitoring helps security teams identify and investigate potentially suspicious activity.
+## 5. Security-event visibility and displayed counts
 
-**Business implication:** Better security visibility supports informed decisions about incident response and risk prioritisation.
+The archived screenshots show different values in different Wazuh views:
 
-## 6. Risk Management Perspective
+- Wazuh Discover: **415 hits** for the displayed time range.
+- Security Events dashboard: **61 events** in the displayed view.
+- Authentication summary: **13 successes** and **6 failures**.
 
-The project demonstrated how technical security events can be interpreted through a business-risk perspective.
+These figures are reported separately because the screenshots represent different views, filters, or summaries. They are not a single reconciled dataset and must not be summed or interpreted as mutually exclusive categories without the original event export.
+
+The Power BI screenshot contains a small displayed sample of records. It is useful as evidence of the visualisation work, but it does not establish that the dashboard contains every event represented in the Wazuh views.
+
+## 6. Risk interpretation
 
 | Security observation | Potential risk | Suggested management action |
 |---|---|---|
-| Repeated authentication failures | Unauthorised access | Review authentication logs and account protection |
-| Password-guessing detection | Account compromise | Strengthen password and access policies |
-| Privileged activity | Misuse of elevated access | Review privileged account permissions |
-| Port-status changes | Unauthorised network changes | Investigate unexpected configuration changes |
-| Recurring security alerts | Persistent security exposure | Prioritise investigation and remediation |
+| Repeated authentication failures | Unauthorised access attempts | Review authentication logs, account protection, and MFA |
+| Password-guessing-related detection | Potential account compromise | Validate the detection and strengthen credential controls |
+| Privileged activity | Misuse or overuse of elevated access | Verify authorisation and apply least privilege |
+| Port-status changes | Unexpected network or service exposure | Investigate against approved change records |
+| Recurring security alerts | Persistent exposure or detection noise | Correlate related alerts and prioritise investigation |
 
 ## Conclusion
 
-This project strengthened the understanding that cybersecurity monitoring is not limited to identifying technical alerts. Security events can also provide valuable information for evaluating organisational exposure, prioritising risks, and supporting business decisions.
+The project demonstrates how security monitoring information can be interpreted beyond the technical alert itself. Reviewing authentication activity, privileged actions, and port-status changes can help identify questions for investigation and support risk-based prioritisation.
 
-**Evidence limitation:** These findings describe the activities and detections represented in the available project screenshots. They should not be interpreted as proof of a confirmed real-world security breach.
+**Evidence limitation:** These are observations and interpretations based on the available historical screenshots. They do not prove that a real-world breach occurred, and the underlying raw Wazuh records are not available for independent validation.
