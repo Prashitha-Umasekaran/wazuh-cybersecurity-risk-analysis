@@ -15,6 +15,12 @@ A practical cybersecurity monitoring case study showing how security events from
 | Threat context | MITRE ATT&CK-related detections visible in Wazuh |
 | Main focus | Event review, potential risk interpretation, and stakeholder communication |
 
+## Project architecture
+
+The diagram below summarises the historical project workflow. It is an illustrative representation of the original work, not a live deployment.
+
+![Wazuh cybersecurity risk analysis project architecture](documentation/Cybersecurity%20Project%20Architecture%20Flow.png)
+
 ## Project objective
 
 The objective was to monitor security-related activity in a simulated environment, review selected alerts, identify patterns that may require investigation, and present security information in a form that is easier for non-technical stakeholders to understand.
