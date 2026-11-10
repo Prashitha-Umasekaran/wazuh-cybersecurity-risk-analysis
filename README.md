@@ -79,3 +79,17 @@ The original virtual machines and raw Wazuh alert exports are not currently avai
 ---
 
 **Project Focus:** Connecting cybersecurity monitoring with business risk analysis and decision support.
+
+
+## Project Documentation
+
+Explore the supporting project materials:
+
+- [Original Project Screenshots](screenshots/)
+- [Screenshot Evidence](documentation/project-evidence.md)
+- [Project Methodology](documentation/methodology.md)
+- [Findings and Risk Insights](documentation/findings-and-risk-insights.md)
+
+## Project Status
+
+The repository documents the original practical implementation using available historical screenshots and supporting explanations. The original virtual machines and raw alert exports are currently unavailable.
